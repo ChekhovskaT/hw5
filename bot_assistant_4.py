@@ -23,31 +23,25 @@ def add_contacts(args, contacts):
 
 @input_error
 def change_contact(args, contacts):
-    # Сheck if arguments contain two elements
-    if len(args) != 2:
-        raise ValueError("Invalid arguments. Usage: change [name] [new_phone]")
     # Unpack arguments
     name, new_phone = args
-    # Check if the contact exists in the dictionary
+    #Check if the contact exists in the dictionary
     if name in contacts:
-        contacts[name] = new_phone
+        contacts[name] = new_phone  
         return f"Contact changed: {name} -> {new_phone}"
     else:
-        raise KeyError(f"Contact '{name}' not found.") 
+        return f"Contact '{name}' not found." 
 
 
 @input_error
 def show_phone(args, contacts):
-    # Check if one argument (name) is provided
-    if len(args) != 1:
-        raise ValueError("Invalid arguments. Usage phone [name]")
     # Extract the contact's name
     name = args[0]
     # Check if the contact exists in the dictionary
     if name in contacts:
         return f"Contact {name}: {contacts[name]}"
     else:
-        raise KeyError(f"Contact '{name}' not found.")
+        return f"Contact '{name}' not found."
 
 @input_error
 def show_all(contacts):
