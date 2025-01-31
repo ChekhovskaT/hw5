@@ -1,13 +1,9 @@
 from typing import Callable
 
 def generator_numbers(text: str):
-    # Split text into words
-    words = text.split()
-    for i, word in enumerate(words):
+    for word in text.split() [1: -1]:
         try:
-            #check if the number isn't at the beginning or end of the text
-            if i > 0 and i < len(words) - 1:
-                yield float(word)
+            yield float(word)
         except ValueError:
             continue
 
